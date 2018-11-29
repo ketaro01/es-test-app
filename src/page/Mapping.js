@@ -79,7 +79,10 @@ class Mapping extends Component {
 
   loadSetting() {
     indices.getSettings(this.state.indexName).then(result => {
-      if (result[this.state.indexName].settings.index) {
+      if (
+        result[this.state.indexName].settings.index &&
+        result[this.state.indexName].settings.index.analysis
+      ) {
         this.setState({
           analyzers: Object.keys(
             result[this.state.indexName].settings.index.analysis.analyzer

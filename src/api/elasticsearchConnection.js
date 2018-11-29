@@ -1,4 +1,4 @@
-const elasticsearch = require("elasticsearch");
+import elasticsearch from "elasticsearch";
 
 /**
  * Elasticsearch Client API
@@ -12,7 +12,7 @@ const elasticsearchClient = new elasticsearch.Client({
   host: "http://localhost:9200",
   cors: true,
   keepAlive: false,
-  requestTimeout: 60000
+  requestTimeout: 600000
   // log: 'trace'
 });
 

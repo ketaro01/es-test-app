@@ -1,0 +1,12 @@
+{
+  "size": 10,
+  "query": {
+    "bool": {
+      "must_not": {
+        "exists": {
+          "field": "summary"
+        }
+      }
+    }
+  }
+}
