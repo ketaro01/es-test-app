@@ -33,7 +33,7 @@ class Header extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" style={styles.grow}>
-              Title
+              ES TEST
             </Typography>
             <Button
               color="inherit"
