@@ -45,6 +45,7 @@ class Mapping extends Component {
       tableRowCnt: 1,
       name: {},
       type: {},
+      format: {},
       analyzer: {},
       search_analyzer: {},
       boost: {}
@@ -103,7 +104,13 @@ class Mapping extends Component {
 
   handleOnSave() {
     const loopRange = new Array(this.state.tableRowCnt).fill("");
-    const settingNames = ["type", "analyzer", "search_analyzer", "boost"];
+    const settingNames = [
+      "type",
+      "format",
+      "analyzer",
+      "search_analyzer",
+      "boost"
+    ];
 
     const values = {};
 
@@ -114,7 +121,7 @@ class Mapping extends Component {
       const obj = {};
       const setValues = settingNames.every(key => {
         if (!this.state[key] || !this.state[key][`${key}_${i}`]) {
-          // analyzer, search_analyzer, boost 는 필수항목이 아님.
+          // analyzer, search_analyzer, boost, format 은 선택항목
           if (key.match(/^(name|type)$/)) return false;
         } else {
           const value =
@@ -227,6 +234,7 @@ class Mapping extends Component {
                 <TableRow>
                   <CustomTableCell>name</CustomTableCell>
                   <CustomTableCell>type</CustomTableCell>
+                  <CustomTableCell>format</CustomTableCell>
                   <CustomTableCell>analyzer</CustomTableCell>
                   <CustomTableCell>search_analyzer</CustomTableCell>
                   <CustomTableCell>boost</CustomTableCell>
@@ -249,6 +257,14 @@ class Mapping extends Component {
                         placeholder="Type"
                         name={`type_${i}`}
                         onBlur={this.handleOnChange("type")}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        fullWidth
+                        placeholder="Format"
+                        name={`format_${i}`}
+                        onBlur={this.handleOnChange("format")}
                       />
                     </TableCell>
                     <TableCell>
