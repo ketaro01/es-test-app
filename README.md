@@ -1,4 +1,4 @@
-# Elasticsearch Test App for React
+# Elasticsearch Test App
 
 ## 참고
 
